@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        blink: 'blink 1s step-start infinite',
+      },
+      keyframes: {
+        blink: {
+          '50%': { opacity: '0' },
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
