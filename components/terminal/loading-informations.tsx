@@ -81,7 +81,7 @@ export default function LoadingInformations() {
 
             <div className="ml-10 mt-5 max-w-[400px]">
                 {
-                    loadingList.map(element => <div className="flex font-bold flex-row justify-between">
+                    loadingList.map((element, index) => <div key={index} className="flex font-bold flex-row justify-between">
                         <span className="  mt-4">{isLoading ? 'Loading' : 'Loaded'} {element.name}</span>
                         <span className="flex flex-row gap-5 mt-4"><LoadingDots isLoading={isLoading} /> {element.percent}%</span>
                     </div>)
@@ -111,7 +111,7 @@ export default function LoadingInformations() {
             <span>Douglas Henrique Portfolio Showcase 2024</span>
             <span>Choose the OS you want to use  <BlinkingCursor /></span>
             <div className="flex flex-row  w-ful justify-between mt-5">
-                <Link href={'/macos'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold">MAC OS</span></Link>
+                <Link href={'/loading/macos'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold">MAC OS</span></Link>
                 <Link href={'/ubuntu'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold" >UBUNTU</span></Link>
                 <Link href={'/macos'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold">WINDOWS</span></Link>
             </div>
