@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import AudioPlayer from "@/components/macos/AudioPlayer"
 import Spotlight from "@/components/macos/spotlight"
 import Doom from "@/components/macos/doom"
-
+import Image from "next/image"
 export interface AppWindowsProps {
     name: string
     uuid?: string
@@ -29,7 +29,15 @@ export default function MacOS() {
     }, [])
 
     return (
-        <main className="flex bg-cover bg-center bg-no-repeat h-screen w-screen" style={{ backgroundImage: "url('/macos/background.jpg')" }}>
+        <main className="flex   h-screen w-screen"  >
+            <Image
+                src="/macos/background.jpg" // Substitua pelo caminho da sua imagem
+                alt="Background Image"
+                layout="fill"
+                priority
+                objectFit="cover"
+                className="-z-10" // Garante que a imagem fique atrás do conteúdo
+            />
             <Toolbar />
             <div className="flex mt-8 flex-1 max-w-full text-black relative overflow-hidden">
 
