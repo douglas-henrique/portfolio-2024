@@ -27,7 +27,7 @@ export default function Component() {
 
     return (
         <Draggable>
-            <div className={`bg-gray-100 rounded-lg shadow-xl overflow-hidden ${isMaximized ? 'fixed inset-0 z-50' : 'w-[600px] h-[400px]'}`}>
+            <div className={`bg-gray-100 rounded-lg shadow-xl overflow-hidden ${isMaximized ? 'fixed inset-0 mt-10' : 'w-[600px] h-[400px]'}`}>
                 {/* Barra de título */}
                 <div className="bg-gray-200 px-4 py-2 flex items-center justify-between">
                     <div className="flex space-x-2">

@@ -24,11 +24,11 @@ export default function Dock({ onAppSelect }: DockProps) {
     const iconsList: IconListProps[] = [
         {
             label: 'Finder',
-            img: 'macos/finder.svg'
+            img: '/macos/finder.svg'
         },
         {
             label: 'Safari',
-            img:'macos/safari.svg'
+            img:'/macos/safari.svg'
         }
     ]
 

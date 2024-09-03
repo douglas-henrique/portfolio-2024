@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontSize: {
+			'custom-apple-toolbar': '13px'
+		},
   		animation: {
   			blink: 'blink 1s step-start infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
