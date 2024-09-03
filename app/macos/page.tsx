@@ -34,14 +34,16 @@ export default function MacOS() {
                 })}
 
                 <div className="absolute z-30 bottom-5 left-1/2 transform -translate-x-1/2">
-                    <Dock onAppSelect={(name: string) => {
+                    <Dock onAppSelect={(name) => {
                         setAppWindows([...appWindows, { name, uuid: uuidv4() }])
                     }} />
                 </div>
 
             </div>
 
-            <Spotlight />
+            <Spotlight onAppSelect={(name) => {
+                setAppWindows([...appWindows, { name, uuid: uuidv4() }])
+            }} />
             <AudioPlayer />
         </main>
     )
