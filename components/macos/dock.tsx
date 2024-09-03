@@ -17,26 +17,25 @@ interface DockProps {
     onAppSelect: (appName: string) => void
 }
 
+export const iconsList: IconListProps[] = [
+    {
+        label: 'Finder',
+        img: '/macos/finder.svg'
+    },
+    {
+        label: 'Safari',
+        img:'/macos/safari.svg'
+    }
+]
+
 export default function Dock({ onAppSelect }: DockProps) {
-
     let mouseX = useMotionValue(Infinity);
-
-    const iconsList: IconListProps[] = [
-        {
-            label: 'Finder',
-            img: '/macos/finder.svg'
-        },
-        {
-            label: 'Safari',
-            img:'/macos/safari.svg'
-        }
-    ]
 
     return (
         <motion.div
             onMouseMove={(e) => mouseX.set(e.pageX)}
             onMouseLeave={() => mouseX.set(Infinity)}
-            className="mx-auto border border-[#1A1A1A06] flex h-16 items-end gap-4 rounded-2xl bg-[#F6F6F636] px-4 pb-3 drop-shadow-md backdrop-blur-3xl				"
+            className="mx-auto border border-[#1A1A1A06] flex h-16 items-end gap-4 rounded-2xl bg-[#00000018] px-4 pb-3 drop-shadow-md backdrop-blur-3xl				"
         >
             {iconsList.map((element) => (
                 <AppIcon mouseX={mouseX} key={element.label} icon={element} onClick={() => onAppSelect(element.label)} />

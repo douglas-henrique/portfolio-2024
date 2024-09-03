@@ -11,7 +11,7 @@ export default function Toolbar() {
     const currentDateTime = useDateTime()
 
     return (
-        <div className="absolute flex items-center flex-row px-4 top-0 h-8 bg-[#FFFFFF50] w-full  align-bottom backdrop-blur-xl ">
+        <div className="absolute flex items-center flex-row px-4 top-0 h-[35px] bg-[#00000018] w-full  align-bottom backdrop-blur-xl ">
             <Image src={AppleIcon} height={12} width={12} alt={"Apple icon"} className=" shadow-lg " />
             <div className="flex flex-row gap-5 px-4 ">
                 <button className="text-custom-apple-toolbar font-bold [text-shadow:_0_1px_4px_rgb(0_0_0_/_15%)]" onClick={() => { }}><span>Finder</span></button>

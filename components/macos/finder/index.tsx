@@ -4,14 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ChevronLeft, ChevronRight, Plus, LayoutGrid } from "lucide-react"
 import Draggable from 'react-draggable'; // The default
+import { AppWindowsProps } from '@/app/macos/page'
 
-export default function Component() {
+export default function Finder( { onClose }: AppWindowsProps ) {
     const [isMinimized, setIsMinimized] = useState(false)
     const [isMaximized, setIsMaximized] = useState(false)
-
-    const handleClose = () => {
-        alert("Janela fechada!")
-    }
 
     const handleMinimize = () => {
         setIsMinimized(!isMinimized)
@@ -31,7 +28,7 @@ export default function Component() {
                 {/* Barra de título */}
                 <div className="bg-gray-200 px-4 py-2 flex items-center justify-between">
                     <div className="flex space-x-2">
-                        <button onClick={handleClose} className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600" />
+                        <button onClick={onClose} className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600" />
                         <button onClick={handleMinimize} className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600" />
                         <button onClick={handleMaximize} className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600" />
                     </div>
