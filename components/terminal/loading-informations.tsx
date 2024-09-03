@@ -93,7 +93,7 @@ export default function LoadingInformations() {
                 !isLoading && (
                     <>
                         <div className="flex align-bottom mt-10">
-                            All content loaded, launching "<b>Douglas Henrique Portfolio</b>" 1.0
+                            All content loaded, launching <b>Douglas Henrique Portfolio</b> 1.0
                         </div>
                     </>
 
