@@ -39,7 +39,7 @@ export default function Spotlight({ onAppSelect }: SpotlightProps) {
                 <CommandEmpty>No results found.</CommandEmpty>
                 <CommandGroup heading="Suggestions">
                     {
-                        iconsList.map(element => <CommandItem className="text-white" onClick={() => { onAppSelect(element.label) }}>{element.label}</CommandItem>)
+                        iconsList.map((element, index) => <CommandItem key={index} className="text-white" onClick={() => { onAppSelect(element.label) }}>{element.label}</CommandItem>)
                     }
                 </CommandGroup>
             </CommandList>
