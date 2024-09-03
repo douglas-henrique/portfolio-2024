@@ -7,6 +7,8 @@ import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import AudioPlayer from "@/components/macos/AudioPlayer"
 import Spotlight from "@/components/macos/spotlight"
+import Doom from "@/components/macos/doom"
+
 export interface AppWindowsProps {
     name: string
     uuid?: string
@@ -15,7 +17,8 @@ export interface AppWindowsProps {
 
 const apps: { [key: string]: React.FC<AppWindowsProps> } = {
     "Finder": Finder,
-    "Safari": Safari
+    "Safari": Safari,
+    "Doom": Doom
 }
 
 export default function MacOS() {

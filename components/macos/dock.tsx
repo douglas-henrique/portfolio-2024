@@ -25,6 +25,10 @@ export const iconsList: IconListProps[] = [
     {
         label: 'Safari',
         img:'/macos/safari.svg'
+    },
+    {
+        label: 'Doom',
+        img:'/games/doom.png'
     }
 ]
 

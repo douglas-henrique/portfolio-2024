@@ -3,10 +3,33 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ChevronLeft, ChevronRight, Plus, LayoutGrid } from "lucide-react"
-import Draggable from 'react-draggable'; // The default
+import Draggable from 'react-draggable';
 import { AppWindowsProps } from '@/app/macos/page'
+import Image from 'next/image'
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import Link from 'next/link'
 
-export default function Finder( { onClose }: AppWindowsProps ) {
+interface FileProps {
+    name: string
+    image: string
+    url: string
+}
+
+
+const files: FileProps[] = [
+    {
+        name: 'my-resume-en.pdf',
+        image: '/macos/pdf.png',
+        url: '/resumes/resume-en.pdf'
+    },
+    {
+        name: 'my-resume-pt.pdf',
+        image: '/macos/pdf.png',
+        url: '/resumes/resume-pt.pdf'
+    }
+]
+
+export default function Finder({ onClose }: AppWindowsProps) {
     const [isMinimized, setIsMinimized] = useState(false)
     const [isMaximized, setIsMaximized] = useState(false)
 
@@ -25,7 +48,6 @@ export default function Finder( { onClose }: AppWindowsProps ) {
     return (
         <Draggable>
             <div className={`bg-gray-100 rounded-lg shadow-xl overflow-hidden ${isMaximized ? 'fixed inset-0 mt-10' : 'w-[600px] h-[400px]'}`}>
-                {/* Barra de título */}
                 <div className="bg-gray-200 px-4 py-2 flex items-center justify-between">
                     <div className="flex space-x-2">
                         <button onClick={onClose} className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600" />
@@ -33,10 +55,9 @@ export default function Finder( { onClose }: AppWindowsProps ) {
                         <button onClick={handleMaximize} className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600" />
                     </div>
                     <div className="text-center flex-grow text-sm font-medium text-gray-700">Finder</div>
-                    <div className="w-16" /> {/* Espaço para equilibrar o layout */}
+                    <div className="w-16" /> 
                 </div>
 
-                {/* Barra de ferramentas */}
                 <div className="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center space-x-4">
                     <Button variant="ghost" size="icon">
                         <ChevronLeft className="h-4 w-4" />
@@ -53,17 +74,20 @@ export default function Finder( { onClose }: AppWindowsProps ) {
                     </Button>
                 </div>
 
-                {/* Área de conteúdo */}
                 <div className="p-4">
                     <h2 className="text-lg font-semibold mb-2">Meus Arquivos</h2>
                     <div className="grid grid-cols-4 gap-4">
-                        {[...Array(8)].map((_, i) => (
-                            <div key={i} className="text-center">
-                                <div className="w-16 h-16 bg-blue-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                                    {/* <FolderIcon className="h-8 w-8 text-blue-500" /> */}
+                        {files.map((element, i) => (
+                            <Link key={i} href={element.url} target='_blank'>
+                            <div  className="text-center">
+                                <div className="w-16 h-16   rounded-lg mx-auto mb-2 flex items-center justify-center">
+                                    <AspectRatio ratio={1/1}>
+                                        <Image src={element.image} height={100} width={100} alt="Image" className="rounded-md object-cover" />
+                                    </AspectRatio>
                                 </div>
-                                <p className="text-sm text-gray-600">Pasta {i + 1}</p>
+                                <p className="text-sm text-gray-600 mt-5">{element.name}</p>
                             </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

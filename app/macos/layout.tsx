@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 
 const inter = Inter({
-    subsets: ['latin'],
-    display: 'swap',
-  })
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* <script type="text/javascript" src="https://thedoggybrad.github.io/doom_on_js-dos/js-dos-api.js" /> */}
+      
+
       <body className={inter.className}>{children}</body>
     </html>
   );
