@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, RotateCcw, Plus, LayoutGrid, Share2 } from "lucide-react"
-import Draggable from 'react-draggable';
+import { ChevronLeft, ChevronRight, RotateCcw, Share2 } from "lucide-react"
 import Image from 'next/image'
 import DougAvatar from '@/public/doug-head.webp'
 import { AppWindowsProps } from '@/app/macos/page'
+import { motion } from "framer-motion"
 
-export default function Safari({ onClose }: AppWindowsProps ) {
+export default function Safari({ onClose }: AppWindowsProps) {
   const [url, setUrl] = useState('https://dougdev.vercel.app/')
   const [isLoading, setIsLoading] = useState(false)
   const [isMaximized, setIsMaximized] = useState(false)
@@ -28,8 +28,12 @@ export default function Safari({ onClose }: AppWindowsProps ) {
   }
 
   return (
-    <Draggable>
-      <div className={`  bg-gray-100 flex flex-col self-center mx-auto rounded-lg shadow-xl overflow-hidden ${isMaximized ? 'h-full w-full' : 'w-[1200px] h-[600px]'}`}>
+      <motion.div
+        drag
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className={`  bg-gray-100 flex flex-col self-center mx-auto rounded-lg shadow-xl overflow-hidden ${isMaximized ? 'h-full w-full' : 'w-[1200px] h-[600px]'}`}>
         <div className="bg-gray-200 px-4 py-2 flex items-center space-x-2">
           <div className="flex space-x-2">
             <button className="w-3 h-3 rounded-full bg-red-500" onClick={onClose} />
@@ -72,7 +76,6 @@ export default function Safari({ onClose }: AppWindowsProps ) {
 
         </div>
 
-        {/* Área de conteúdo */}
         <div className="flex-grow bg-white overflow-auto">
           {isLoading ? (
             <div className="flex items-center justify-center h-full">
@@ -80,32 +83,8 @@ export default function Safari({ onClose }: AppWindowsProps ) {
             </div>
           ) : (
             <iframe src={url} className='w-full h-full' title="W3Schools Free Online Web Tutorials"></iframe>
-
-            // <div>
-            //   <h1 className="text-3xl font-bold mb-4">Bem-vindo à Apple</h1>
-            //   <p className="mb-4">Descubra o mais recente em inovação da Apple.</p>
-            //   <div className="grid grid-cols-2 gap-4">
-            //     <div className="bg-gray-100 p-4 rounded-lg">
-            //       <h2 className="text-xl font-semibold mb-2">iPhone</h2>
-            //       <p>Conheça a nova linha de iPhones.</p>
-            //     </div>
-            //     <div className="bg-gray-100 p-4 rounded-lg">
-            //       <h2 className="text-xl font-semibold mb-2">MacBook</h2>
-            //       <p>Potência e portabilidade em um só lugar.</p>
-            //     </div>
-            //     <div className="bg-gray-100 p-4 rounded-lg">
-            //       <h2 className="text-xl font-semibold mb-2">iPad</h2>
-            //       <p>Sua criatividade não tem limites.</p>
-            //     </div>
-            //     <div className="bg-gray-100 p-4 rounded-lg">
-            //       <h2 className="text-xl font-semibold mb-2">Apple Watch</h2>
-            //       <p>Saúde e tecnologia no seu pulso.</p>
-            //     </div>
-            //   </div>
-            // </div>
           )}
         </div>
-      </div>
-    </Draggable >
+      </motion.div>
   )
 }

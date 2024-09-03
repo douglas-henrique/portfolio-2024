@@ -3,7 +3,7 @@ import Dock from "@/components/macos/dock"
 import Finder from "@/components/macos/finder"
 import Safari from '@/components/macos/safari'
 import Toolbar from "@/components/macos/toolbar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import AudioPlayer from "@/components/macos/AudioPlayer"
 import Spotlight from "@/components/macos/spotlight"
@@ -23,6 +23,10 @@ const apps: { [key: string]: React.FC<AppWindowsProps> } = {
 
 export default function MacOS() {
     const [appWindows, setAppWindows] = useState<AppWindowsProps[]>([])
+
+    useEffect(() => {
+        setAppWindows([...appWindows, { name: 'Safari', uuid: uuidv4() }])
+    }, [])
 
     return (
         <main className="flex bg-cover bg-center bg-no-repeat h-screen w-screen" style={{ backgroundImage: "url('/macos/background.jpg')" }}>

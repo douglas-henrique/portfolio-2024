@@ -112,8 +112,8 @@ export default function LoadingInformations() {
             <span>Choose the OS you want to use  <BlinkingCursor /></span>
             <div className="flex flex-row  w-ful justify-between mt-5">
                 <Link href={'/loading/macos'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold">MAC OS</span></Link>
-                <Link href={'/ubuntu'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold" >UBUNTU</span></Link>
-                <Link href={'/macos'} className="h-16 w-32 border flex items-center justify-center hover:bg-white hover:text-black"><span className="font-bold">WINDOWS</span></Link>
+                <div className="h-16 w-32 border flex  flex-col items-center justify-center "><span className="font-bold text-center" >UBUNTU</span> <small>coming soon</small> </div>
+                <div className="h-16 w-32 border flex flex-col items-center justify-center"><span className="font-bold text-center">WINDOWS<br/> </span> <small>coming soon</small></div>
             </div>
         </div>
     </div>
